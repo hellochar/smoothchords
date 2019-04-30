@@ -1,24 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { ChordComponent } from './chord';
+import { MajorScale } from './scales';
+import { getMotionsOptionsFor, MotionOptionComponent } from './motionOption';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      { MajorScale.map((chord) => (
+          <div>
+            <ChordComponent chord={chord} />
+            can go to
+            {
+              getMotionsOptionsFor(chord, MajorScale).map((option) => <span><MotionOptionComponent option={option} />,</span>)
+            }
+          </div>
+        ))
+      }
     </div>
   );
 }
