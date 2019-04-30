@@ -13,6 +13,7 @@ export interface ChordMotion {
 
 export const Motions = {
   root: [
+    { movement: [".", ".", "."], scaleDegreeOffset: 1, newInversion: "root" },
     { movement: ["d", ".", "."], scaleDegreeOffset: 3, newInversion: "first" },
     { movement: ["d", "d", "."], scaleDegreeOffset: 5, newInversion: "second" },
     { movement: ["d", "d", "d"], scaleDegreeOffset: 7, newInversion: "root" },
@@ -21,6 +22,7 @@ export const Motions = {
     { movement: ["u", "u", "u"], scaleDegreeOffset: 2, newInversion: "root" },
   ] as ChordMotion[],
   first: [
+    { movement: [".", ".", "."], scaleDegreeOffset: 1, newInversion: "first" },
     { movement: [".", "d", "."], scaleDegreeOffset: 3, newInversion: "second" },
     { movement: [".", "d", "d"], scaleDegreeOffset: 5, newInversion: "root" },
     { movement: ["d", "d", "d"], scaleDegreeOffset: 7, newInversion: "first" },
@@ -29,6 +31,7 @@ export const Motions = {
     { movement: ["u", "u", "u"], scaleDegreeOffset: 2, newInversion: "first" },
   ] as ChordMotion[],
   second: [
+    { movement: [".", ".", "."], scaleDegreeOffset: 1, newInversion: "second" },
     { movement: [".", ".", "d"], scaleDegreeOffset: 3, newInversion: "root" },
     { movement: ["d", ".", "d"], scaleDegreeOffset: 5, newInversion: "first" },
     { movement: ["d", "d", "d"], scaleDegreeOffset: 7, newInversion: "second" },

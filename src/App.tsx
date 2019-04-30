@@ -3,11 +3,12 @@ import './App.scss';
 import { ChordComponent } from './chord';
 import { MajorScale } from './scales';
 import { getMotionsOptionsFor, MotionOptionComponent } from './motionOption';
+import { CircleOfFourths } from './circleOfFourths';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      { MajorScale.map((chord) => (
+      {/* { MajorScale.map((chord) => (
           <div>
             <ChordComponent chord={chord} />
             can go to
@@ -16,7 +17,8 @@ const App: React.FC = () => {
             }
           </div>
         ))
-      }
+      } */}
+      <CircleOfFourths />
     </div>
   );
 }
