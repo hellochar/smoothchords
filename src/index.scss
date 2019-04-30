@@ -56,3 +56,11 @@ code {
 .option-container {
   position: absolute;
 }
+
+.circle-of-fourths {
+  $radius: 200px;
+  $motion-option-size: 100px;
+  width: 2*$radius + $motion-option-size / 2;
+  height: 2*$radius + $motion-option-size / 2;
+  margin: auto;
+}

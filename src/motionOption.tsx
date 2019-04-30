@@ -25,8 +25,14 @@ export class MotionOptionComponent extends React.PureComponent<{option: MotionOp
     return (
       <div className="motion-option">
         <ChordComponent chord={destinationChord} />
-        <ChordMovementComponent movement={motion.movement} />
+        { this.maybeRenderMovement(motion) }
       </div>
     );
+  }
+
+  maybeRenderMovement(motion: ChordMotion) {
+    if (motion.movement !== "...") {
+      return <ChordMovementComponent movement={motion.movement} />;
+    }
   }
 }

@@ -14,8 +14,8 @@ export interface CircleOfFourthsState {
 
 export class CircleOfFourths extends React.PureComponent<{}, CircleOfFourthsState> {
   state: CircleOfFourthsState = {
-    scaleDegree: 1,
-    inversion: "root",
+    scaleDegree: 4,
+    inversion: "first",
   };
 
   get currentChord(): Chord {
