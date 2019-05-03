@@ -16,7 +16,7 @@ export interface ICircleOfFourthsProps {
 export class CircleOfFourths extends React.PureComponent<ICircleOfFourthsProps, {}> {
   get currentChord(): Chord {
     return {
-      ...this.props.scale[this.props.scaleDegree - 1],
+      ...this.props.scale.chords[this.props.scaleDegree - 1],
       inversion: this.props.inversion,
     };
   }

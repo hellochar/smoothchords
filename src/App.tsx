@@ -5,8 +5,10 @@ import { CircleOfFourths } from './circleOfFourths';
 import { MidiNoteCollector } from './midiNoteCollector';
 import { getChord, MidiPitch } from './chordFinder';
 import { Scale, MajorScale } from './scales';
+import { Piano } from './piano';
 
 interface IAppState {
+  pitches: MidiPitch[];
   scale: Scale;
   scaleDegree: ScaleDegree;
   inversion: Inversion;
@@ -14,6 +16,7 @@ interface IAppState {
 
 class App extends React.PureComponent<{}, IAppState> {
   state: IAppState = {
+    pitches: [],
     inversion: "root",
     scale: MajorScale,
     scaleDegree: 1,
@@ -25,15 +28,20 @@ class App extends React.PureComponent<{}, IAppState> {
   }
 
   handleMidiNotes = (pitches: MidiPitch[]) => {
-    const chord = getChord(pitches);
+    const chord = getChord(pitches, this.state.scale);
     console.log("getting chord from", pitches, "got", chord);
     if (chord) {
       this.setState({
+        pitches,
         scaleDegree: chord.degree,
         inversion: chord.inversion,
       });
+    } else {
+      this.setState({ pitches });
     }
   }
+
+  
 
   render() {
     return (
@@ -43,6 +51,7 @@ class App extends React.PureComponent<{}, IAppState> {
           scaleDegree={this.state.scaleDegree}
           scale={this.state.scale}
           />
+        <Piano pitches={this.state.pitches} />
       </div>
     );
   }

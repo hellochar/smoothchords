@@ -42,7 +42,7 @@ export const Motions = {
 
 export function move(chord: Chord, motion: ChordMotion, scale: Scale): Chord {
   const newDegree = ((chord.degree - 1) + (motion.scaleDegreeOffset - 1)) % 7 + 1;
-  const newChord = scale[newDegree - 1];
+  const newChord = scale.chords[newDegree - 1];
   if (!newChord) { throw new Error("bad"); }
   return {
     ...newChord,
