@@ -21,8 +21,9 @@ export class CircleOfFourths extends React.PureComponent<ICircleOfFourthsProps, 
   }
 
   getAngleOffset() {
-    const index = SCALE_DEGREE_ORDER.indexOf(this.props.scaleDegree);
-    return ANGLES[0] - ANGLES[index];
+    // const index = SCALE_DEGREE_ORDER.indexOf(this.props.scaleDegree);
+    // return ANGLES[0] - ANGLES[index];
+    return 0;
   }
 
   render() {
@@ -39,6 +40,9 @@ export class CircleOfFourths extends React.PureComponent<ICircleOfFourthsProps, 
       const style: React.CSSProperties = {
         transform: `translate(${Math.cos(angle) * radius + radius}px, ${Math.sin(angle) * radius + radius}px)`
       };
+      if (SCALE_DEGREE_ORDER[index] === this.props.scaleDegree) {
+        style.fontWeight = "bold";
+      }
       // debugger;
       elements.push(
         <div className="option-container" style={style} key={index}>
