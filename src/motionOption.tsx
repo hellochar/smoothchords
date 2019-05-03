@@ -1,5 +1,5 @@
 import { Chord, ChordComponent } from "./chord";
-import { ChordMotion, Motions, move as applyMotion, ChordMovementComponent, move } from "./motion";
+import { ChordMotion, Motions, move as applyMotion, ChordMovementComponent } from "./motion";
 import { Scale } from "./scales";
 import React from "react";
 
@@ -21,7 +21,7 @@ export function getMotionsOptionsFor(chord: Chord, scale: Scale): MotionOption[]
 
 export class MotionOptionComponent extends React.PureComponent<{option: MotionOption}> {
   render() {
-    const {chord, destinationChord, motion, scale} = this.props.option;
+    const {destinationChord, motion} = this.props.option;
     return (
       <div className="motion-option">
         <ChordComponent chord={destinationChord} />

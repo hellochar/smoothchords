@@ -58,7 +58,9 @@ export class ChordMovementComponent extends React.PureComponent<{movement: Chord
   };
 
   render() {
-    const string = this.props.movement.split("").map((v) => ChordMovementComponent.mapping[v]);
+    const string = this.props.movement.split("").map((v, index) => {
+      return React.cloneElement(ChordMovementComponent.mapping[v], { key: index })
+    });
     return <div className="chord-movement">{string}</div>;
   }
 }

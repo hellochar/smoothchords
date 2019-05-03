@@ -1096,6 +1096,10 @@
     "@types/unist" "*"
     "@types/vfile-message" "*"
 
+"@types/webmidi@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@types/webmidi/-/webmidi-2.0.3.tgz#2c04998688e4d0b558b2fa3b84af1a705c5a6ec3"
+
 "@types/yargs@^12.0.2", "@types/yargs@^12.0.9":
   version "12.0.12"
   resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-12.0.12.tgz#45dd1d0638e8c8f153e87d296907659296873916"
