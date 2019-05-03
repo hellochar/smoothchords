@@ -1,6 +1,6 @@
 import React from "react";
 import { ScaleDegree, Inversion, Chord } from "./chord";
-import { MajorScale } from "./scales";
+import { Scale } from "./scales";
 import { MotionOptionComponent, getMotionsOptionsFor } from "./motionOption";
 
 // Starting from the top, going counterclockwise.
@@ -8,6 +8,7 @@ const ANGLES = [0, 1, 2, 3, 4, 5, 6].map((index) => -Math.PI / 2 - index/7 * Mat
 const SCALE_DEGREE_ORDER: ScaleDegree[] = [1, 4, 7, 3, 6, 2, 5];
 
 export interface ICircleOfFourthsProps {
+  scale: Scale;
   scaleDegree: ScaleDegree;
   inversion: Inversion;
 }
@@ -15,7 +16,7 @@ export interface ICircleOfFourthsProps {
 export class CircleOfFourths extends React.PureComponent<ICircleOfFourthsProps, {}> {
   get currentChord(): Chord {
     return {
-      ...MajorScale[this.props.scaleDegree - 1],
+      ...this.props.scale[this.props.scaleDegree - 1],
       inversion: this.props.inversion,
     };
   }
@@ -29,7 +30,7 @@ export class CircleOfFourths extends React.PureComponent<ICircleOfFourthsProps, 
   render() {
     const elements: JSX.Element[] = [];
     const radius = 200;
-    const motionOptions = getMotionsOptionsFor(this.currentChord, MajorScale);
+    const motionOptions = getMotionsOptionsFor(this.currentChord, this.props.scale);
     const angleOffset = this.getAngleOffset();
     for (let index in SCALE_DEGREE_ORDER) {
       const angle = ANGLES[Number(index)] + angleOffset;

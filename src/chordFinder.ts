@@ -9,7 +9,7 @@ export type MidiPitch = number;
 // note, 3rd (minor or major), 6th (perfect 4th above 3rd)
 export function getChord(pitches: MidiPitch[]): Chord | undefined {
   // sort from lowest to highest
-  const notes = pitches.slice(0, 3).sort((a, b) => a - b);
+  const notes = pitches.sort((a, b) => a - b).slice(0, 3);
   if (notes.length < 3) {
     return;
   }

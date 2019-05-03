@@ -4,8 +4,10 @@ import { ScaleDegree, Inversion } from './chord';
 import { CircleOfFourths } from './circleOfFourths';
 import { MidiNoteCollector } from './midiNoteCollector';
 import { getChord, MidiPitch } from './chordFinder';
+import { Scale, MajorScale } from './scales';
 
 interface IAppState {
+  scale: Scale;
   scaleDegree: ScaleDegree;
   inversion: Inversion;
 }
@@ -13,6 +15,7 @@ interface IAppState {
 class App extends React.PureComponent<{}, IAppState> {
   state: IAppState = {
     inversion: "root",
+    scale: MajorScale,
     scaleDegree: 1,
   };
   noteCollector: MidiNoteCollector;
@@ -23,7 +26,7 @@ class App extends React.PureComponent<{}, IAppState> {
 
   handleMidiNotes = (pitches: MidiPitch[]) => {
     const chord = getChord(pitches);
-    // console.log("getting chord from", pitches, "got", chord);
+    console.log("getting chord from", pitches, "got", chord);
     if (chord) {
       this.setState({
         scaleDegree: chord.degree,
@@ -35,17 +38,11 @@ class App extends React.PureComponent<{}, IAppState> {
   render() {
     return (
       <div className="App">
-        {/* { MajorScale.map((chord) => (
-          <div>
-            <ChordComponent chord={chord} />
-            can go to
-            {
-              getMotionsOptionsFor(chord, MajorScale).map((option) => <span><MotionOptionComponent option={option} />,</span>)
-            }
-          </div>
-        ))
-      } */}
-        <CircleOfFourths inversion={this.state.inversion} scaleDegree={this.state.scaleDegree} />
+        <CircleOfFourths
+          inversion={this.state.inversion}
+          scaleDegree={this.state.scaleDegree}
+          scale={this.state.scale}
+          />
       </div>
     );
   }
