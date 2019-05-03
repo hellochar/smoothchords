@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.scss';
 import { ScaleDegree, Inversion } from './chord';
 import { CircleOfFourths } from './circleOfFourths';
 import { MidiNoteCollector } from './midiNoteCollector';
@@ -44,6 +43,7 @@ class App extends React.PureComponent<{}, IAppState> {
   render() {
     return (
       <div className="App">
+        <div className="top-area">
         <select value={this.state.scale.name} onChange={(v) => this.setState({scale: SCALES[v.target.value]})}>
           {Object.keys(SCALES).map((name) => <option value={name}>{name}</option>)}
         </select>
@@ -52,6 +52,7 @@ class App extends React.PureComponent<{}, IAppState> {
           scaleDegree={this.state.scaleDegree}
           scale={this.state.scale}
           />
+        </div>
         <Piano pitches={this.state.pitches} />
       </div>
     );

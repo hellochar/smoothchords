@@ -14,6 +14,11 @@ code {
     monospace;
 }
 
+.top-area {
+  width: 500px;
+  margin: auto;
+}
+
 .chord {
   font-size: 32px;
 }
@@ -49,6 +54,7 @@ $motion-option-size: 75px;
   flex-direction: column;
   width: $motion-option-size;
   height: $motion-option-size;
+  text-align: center;
 }
 
 .option-container {
@@ -77,5 +83,5 @@ $motion-option-size: 75px;
   $radius: 200px;
   width: 2*$radius;
   height: 2*$radius;
-  margin: 50px auto;
+  padding: 50px;
 }
