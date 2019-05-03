@@ -40,7 +40,7 @@ export function getChord(pitches: MidiPitch[], scale: Scale): Chord | undefined 
       notes[2];
     const rootNoteChroma = rootNote % 12;
     const semitoneIndex = scale.semitones.indexOf(rootNoteChroma);
-    if (semitoneIndex) {
+    if (semitoneIndex !== -1) {
       return {
         degree: semitoneIndex + 1,
         inversion: pattern.inversion,

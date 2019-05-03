@@ -12,7 +12,7 @@ export interface PianoProps {
 export class Piano extends React.PureComponent<PianoProps, {}> {
   render() {
     const keys: JSX.Element[] = [];
-    for (let pitch = 48; pitch < 48 + 48; pitch++) {
+    for (let pitch = 36; pitch <= 36 + 48; pitch++) {
       const chroma = pitch % 12;
       const isActive = this.props.pitches.indexOf(pitch) !== -1;
       if (MajorScale.semitones.indexOf(chroma) !== -1) {

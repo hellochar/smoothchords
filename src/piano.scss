@@ -4,6 +4,13 @@
   .piano-key {
     display: inline-block;
     border-radius: 0 0 5px 5px;
+    box-sizing: border-box;
+
+    &.active {
+      border: 2px solid blue;
+      border-top: none;
+      background: lightblue;
+    }
   }
 
   .piano-key-white {
