@@ -1,6 +1,10 @@
 .piano {
   background: black;
   padding: 2px;
+  height: 160px;
+  overflow: hidden;
+  position: relative;
+
   .piano-key {
     display: inline-block;
     border-radius: 0 0 5px 5px;
