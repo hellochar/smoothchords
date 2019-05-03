@@ -38,7 +38,9 @@ export function getChord(pitches: MidiPitch[], scale: Scale): Chord | undefined 
       pattern.inversion === "root" ? notes[0] :
       pattern.inversion === "first" ? notes[1] :
       notes[2];
-    const rootNoteChroma = rootNote % 12;
+
+    // relative to C
+    const rootNoteChroma = (rootNote - scale.key) % 12;
     const semitoneIndex = scale.semitones.indexOf(rootNoteChroma);
     if (semitoneIndex !== -1) {
       return {

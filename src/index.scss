@@ -43,25 +43,25 @@ code {
   width: 10px;
 }
 
+$motion-option-size: 75px;
 .motion-option {
   display: inline-flex;
   flex-direction: column;
-  margin: 10px;
-  width: 75px;
-  height: 75px;
+  width: $motion-option-size;
+  height: $motion-option-size;
 }
 
 .option-container {
   position: absolute;
 
   .active-ring {
-    width: 75px;
-    height: 75px;
+    width: $motion-option-size;
+    height: $motion-option-size;
     border-radius: 100%;
     border: 1px solid gray;
     position: absolute;
-    top: -48px;
-    left: -30px;
+    top: -$motion-option-size * 0.76;
+    left: -$motion-option-size / 2;
   }
 
   &.active .motion-option {
@@ -75,8 +75,7 @@ code {
 
 .circle-of-fourths {
   $radius: 200px;
-  $motion-option-size: 100px;
-  width: 2*$radius + $motion-option-size / 2;
-  height: 2*$radius + $motion-option-size / 2;
+  width: 2*$radius;
+  height: 2*$radius;
   margin: 50px auto;
 }

@@ -22,20 +22,12 @@ export class CircleOfFourths extends React.PureComponent<ICircleOfFourthsProps, 
     };
   }
 
-  getAngleOffset() {
-    // const index = SCALE_DEGREE_ORDER.indexOf(this.props.scaleDegree);
-    // return ANGLES[0] - ANGLES[index];
-    return 0;
-  }
-
   render() {
     const elements: JSX.Element[] = [];
     const radius = 200;
     const motionOptions = getMotionsOptionsFor(this.currentChord, this.props.scale);
-    const angleOffset = this.getAngleOffset();
     for (let index in SCALE_DEGREE_ORDER) {
-      const angle = ANGLES[Number(index)] + angleOffset;
-      // console.log(index, ANGLES[index], ANGLES[Number(index)], angleOffset, angle);
+      const angle = ANGLES[Number(index)];
       const option = motionOptions.find((option) => option.destinationChord.degree === SCALE_DEGREE_ORDER[index]);
       if (!option) { throw new Error(""); }
       const style: React.CSSProperties = {
