@@ -16,7 +16,11 @@ code {
 
 .top-area {
   width: 500px;
-  margin: auto;
+  margin: 10px auto 0;
+
+  select {
+    position: absolute;
+  }
 }
 
 .chord {
@@ -83,5 +87,5 @@ $motion-option-size: 75px;
   $radius: 200px;
   width: 2*$radius;
   height: 2*$radius;
-  padding: 50px;
+  padding: 57px 50px 50px;
 }
