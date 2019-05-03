@@ -15,7 +15,6 @@ code {
 }
 
 .chord {
-  display: inline-block;
   font-size: 32px;
 }
 
@@ -23,13 +22,10 @@ code {
   display: inline-block;
 }
 
-.inversion-second {
-  display: inline-block;
-  margin-bottom: -0.3em;
-  vertical-align: -0.4em;
-  line-height: 1.2em;
-  font-size: 70%;
-  text-align: left;
+.inversion {
+  position: absolute;
+  font-size: 50%;
+  line-height: 0.8em;
 
   sup, sub {
     font-size: inherit;
@@ -51,10 +47,26 @@ code {
   display: inline-flex;
   flex-direction: column;
   margin: 10px;
+  width: 75px;
+  height: 75px;
 }
 
 .option-container {
   position: absolute;
+
+  .active-ring {
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    border: 1px solid gray;
+    position: absolute;
+    top: -48px;
+    left: -30px;
+  }
+
+  &.active .motion-option {
+    font-weight: bold;
+  }
 
   .motion-option {
     transform: translate(-50%, -50%);

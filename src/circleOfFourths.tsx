@@ -2,6 +2,7 @@ import React from "react";
 import { ScaleDegree, Inversion, Chord } from "./chord";
 import { Scale } from "./scales";
 import { MotionOptionComponent, getMotionsOptionsFor } from "./motionOption";
+import classnames from "classnames";
 
 // Starting from the top, going counterclockwise.
 const ANGLES = [0, 1, 2, 3, 4, 5, 6].map((index) => -Math.PI / 2 - index/7 * Math.PI * 2);
@@ -37,17 +38,15 @@ export class CircleOfFourths extends React.PureComponent<ICircleOfFourthsProps, 
       // console.log(index, ANGLES[index], ANGLES[Number(index)], angleOffset, angle);
       const option = motionOptions.find((option) => option.destinationChord.degree === SCALE_DEGREE_ORDER[index]);
       if (!option) { throw new Error(""); }
-      const element = <MotionOptionComponent option={option} />;
       const style: React.CSSProperties = {
         transform: `translate(${Math.cos(angle) * radius + radius}px, ${Math.sin(angle) * radius + radius}px)`
       };
-      if (SCALE_DEGREE_ORDER[index] === this.props.scaleDegree) {
-        style.fontWeight = "bold";
-      }
-      // debugger;
+      const isActive = SCALE_DEGREE_ORDER[index] === this.props.scaleDegree;
+      const className = classnames("option-container", { "active": isActive });
       elements.push(
-        <div className="option-container" style={style} key={index}>
-          {element}
+        <div className={className} style={style} key={index}>
+          { isActive ? <div className="active-ring"></div> : null }
+          <MotionOptionComponent option={option} />
         </div>
       );
     }
