@@ -29,11 +29,14 @@ export class MidiNoteCollector {
   }
 
   handleMIDIMessage = (event: WebMidi.MIDIMessageEvent) => {
+    console.log(event.data);
     const messageType = event.data[0];
     const notePitch = event.data[1];
-    if (messageType === MIDI_MESSAGE_TYPE_NOTE_ON) {
+    if (messageType >= MIDI_MESSAGE_TYPE_NOTE_ON &&
+        messageType <  MIDI_MESSAGE_TYPE_NOTE_ON + 16) {
       this.pitches = [...this.pitches, notePitch];
-    } else if (messageType === MIDI_MESSAGE_TYPE_NOTE_OFF) {
+    } else if (messageType >= MIDI_MESSAGE_TYPE_NOTE_OFF &&
+               messageType <  MIDI_MESSAGE_TYPE_NOTE_OFF + 16) {
       this.pitches = this.pitches.filter((p) => p !== notePitch);
     }
     this.onMidiNotes(this.pitches.slice());
