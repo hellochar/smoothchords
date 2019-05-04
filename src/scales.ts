@@ -24,23 +24,20 @@ export class Scale {
     return this.semitones[pitchClass] + 12 * octave;
   }
 }
+export const LydianScale = new Scale([0, 2, 4, 6, 7, 9, 11], 5, "F Lydian");
 export const MajorScale = new Scale([0, 2, 4, 5, 7, 9, 11], 0, "C Major");
+export const MixolydianScale = new Scale([0, 2, 4, 5, 7, 9, 10], 7, "G Mixolydian");
+export const DorianScale = new Scale([0, 2, 3, 5, 7, 9, 10], 2, "D Dorian");
 export const MinorScale = new Scale([0, 2, 3, 5, 7, 8, 10], 9, "A Minor");
+export const PhrygianScale = new Scale([0, 1, 3, 5, 7, 8, 10], 4, "E Phrygian");
+export const LocrianScale = new Scale([0, 1, 3, 5, 6, 8, 10], 11, "B Locrian");
 
 export const SCALES: { [name: string]: Scale } = {
+  // "F Lydian": LydianScale,
   "C Major": MajorScale,
+  // "G Mixolydian": MixolydianScale,
+  // "D Dorian": DorianScale,
   "A Minor": MinorScale,
+  // "E Phrygian": PhrygianScale,
+  // "B Locrian": LocrianScale,
 };
-
-// export const MajorScale: Scale = {
-//   semitones: [0, 2, 4, 5, 7, 9, 11],
-//   chords: [
-//     { degree: 1, quality: "major", inversion: "root" },
-//     { degree: 2, quality: "minor", inversion: "root" },
-//     { degree: 3, quality: "minor", inversion: "root" },
-//     { degree: 4, quality: "major", inversion: "root" },
-//     { degree: 5, quality: "major", inversion: "root" },
-//     { degree: 6, quality: "minor", inversion: "root" },
-//     { degree: 7, quality: "diminished", inversion: "root" },
-//   ],
-// };
