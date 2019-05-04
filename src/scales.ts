@@ -33,11 +33,11 @@ export const PhrygianScale = new Scale([0, 1, 3, 5, 7, 8, 10], 4, "E Phrygian");
 export const LocrianScale = new Scale([0, 1, 3, 5, 6, 8, 10], 11, "B Locrian");
 
 export const SCALES: { [name: string]: Scale } = {
-  // "F Lydian": LydianScale,
+  "F Lydian": LydianScale,
   "C Major": MajorScale,
-  // "G Mixolydian": MixolydianScale,
-  // "D Dorian": DorianScale,
+  "G Mixolydian": MixolydianScale,
+  "D Dorian": DorianScale,
   "A Minor": MinorScale,
-  // "E Phrygian": PhrygianScale,
-  // "B Locrian": LocrianScale,
+  "E Phrygian": PhrygianScale,
+  "B Locrian": LocrianScale,
 };
