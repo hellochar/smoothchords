@@ -4,8 +4,11 @@ import { Scale } from "./scales";
 // 0 to 127 corresponding to pitch value.
 export type MidiPitch = number;
 
+// augmented chords are tricky: it's difficult to describe the inversion of because
+// it can dependend on the voice leading. TODO detect voice leading.
 const CHORD_PATTERNS = [
   // root
+  { tenor: 4, alto: 8, inversion: "root", quality: "augmented" },
   { tenor: 4, alto: 7, inversion: "root", quality: "major" },
   { tenor: 3, alto: 7, inversion: "root", quality: "minor" },
   { tenor: 3, alto: 6, inversion: "root", quality: "diminished" },

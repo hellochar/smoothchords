@@ -2,7 +2,7 @@ import React from "react";
 
 export type ScaleDegree = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 export type Inversion = "root" | "first" | "second";
-export type Quality = "major" | "minor" | "diminished";
+export type Quality = "major" | "minor" | "diminished" | "augmented";
 export interface Chord {
   quality: Quality;
   inversion: Inversion;
@@ -21,12 +21,14 @@ export class ChordComponent extends React.PureComponent<{chord: Chord}> {
   }
 
   renderRomanNumeral(quality: Quality, degree: ScaleDegree) {
-    const numerals = quality === "major" ?
+    const numerals = quality === "major" || quality === "augmented" ?
       "Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ".split(" ") :
       "ⅰ ⅱ ⅲ ⅳ ⅴ ⅵ ⅶ".split(" ");
     const numeral = numerals[degree - 1];
     if (quality === "diminished") {
       return numeral + "ᵒ";
+    } else if (quality === "augmented") {
+      return numeral + "+";
     } else {
       return numeral;
     }
