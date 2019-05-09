@@ -45,13 +45,14 @@ class App extends React.PureComponent<{}, IAppState> {
     return (
       <div className="App">
         <div className="top-area">
-        <select value={this.state.scale.name} onChange={(v) => this.setState({scale: SCALES[v.target.value]})}>
-          {Object.keys(SCALES).map((name) => <option value={name}>{name}</option>)}
-        </select>
-        <CircleOfFourths
-          chord={this.state.chord}
-          scale={this.state.scale}
-          />
+          <textarea className="scratchpad" />
+          <select value={this.state.scale.name} onChange={(v) => this.setState({scale: SCALES[v.target.value]})}>
+            {Object.keys(SCALES).map((name) => <option value={name}>{name}</option>)}
+          </select>
+          <CircleOfFourths
+            chord={this.state.chord}
+            scale={this.state.scale}
+            />
         </div>
         <Piano pitches={this.state.pitches} />
       </div>

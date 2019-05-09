@@ -18,6 +18,16 @@ code {
   width: 500px;
   margin: 10px auto 0;
 
+  .scratchpad {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 24px;
+    font-family: 'Courier New', Courier, monospace;
+    height: 491px;
+    margin: 10px;
+  }
+
   select {
     position: absolute;
   }
