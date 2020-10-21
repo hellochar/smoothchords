@@ -1,10 +1,10 @@
 import React from 'react';
-import { ScaleDegree, Inversion, Chord } from './chord';
+import { Chord } from './chord';
+import { getChord, MidiPitch } from './chordFinder';
 import { CircleOfFourths } from './circleOfFourths';
 import { MidiNoteCollector } from './midiNoteCollector';
-import { getChord, MidiPitch } from './chordFinder';
-import { Scale, MajorScale, SCALES } from './scales';
-import { Piano } from './piano';
+import { PianoRoll } from './pianoRoll';
+import { MajorScale, Scale, SCALES } from './scales';
 
 interface IAppState {
   chord: Chord;
@@ -46,6 +46,7 @@ class App extends React.PureComponent<{}, IAppState> {
       <div className="App">
         <div className="top-area">
           <textarea className="scratchpad" />
+          <SoundManager />
           <select value={this.state.scale.name} onChange={(v) => this.setState({scale: SCALES[v.target.value]})}>
             {Object.keys(SCALES).map((name) => <option value={name}>{name}</option>)}
           </select>
@@ -54,10 +55,15 @@ class App extends React.PureComponent<{}, IAppState> {
             scale={this.state.scale}
             />
         </div>
-        <Piano pitches={this.state.pitches} />
+        <PianoRoll pitches={this.state.pitches} />
       </div>
     );
   }
+}
+
+const SoundManager = () => {
+  // const midi = 
+  return null;
 }
 
 export default App;

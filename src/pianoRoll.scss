@@ -7,8 +7,13 @@
   text-align: center;
 
   .piano-key {
-    display: inline-block;
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 5px;
     border-radius: 0 0 5px 5px;
+    font-size: 0.875rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     box-sizing: border-box;
 
     &.active {
@@ -30,6 +35,8 @@
     height: 97px;
     background: black;
     position: absolute;
+    font-size: 0.75rem;
     transform: translate(-50%, 0);
+    // font-size: 0.8em;
   }
 }
