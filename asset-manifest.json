@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/smoothchords/static/css/main.0da9520a.chunk.css",
-    "main.js": "/smoothchords/static/js/main.99c074b8.chunk.js",
-    "main.js.map": "/smoothchords/static/js/main.99c074b8.chunk.js.map",
+    "main.css": "/smoothchords/static/css/main.cfb1c445.chunk.css",
+    "main.js": "/smoothchords/static/js/main.559887a4.chunk.js",
+    "main.js.map": "/smoothchords/static/js/main.559887a4.chunk.js.map",
     "runtime~main.js": "/smoothchords/static/js/runtime~main.79b5f788.js",
     "runtime~main.js.map": "/smoothchords/static/js/runtime~main.79b5f788.js.map",
-    "static/js/2.701d317d.chunk.js": "/smoothchords/static/js/2.701d317d.chunk.js",
-    "static/js/2.701d317d.chunk.js.map": "/smoothchords/static/js/2.701d317d.chunk.js.map",
+    "static/js/2.8158dc11.chunk.js": "/smoothchords/static/js/2.8158dc11.chunk.js",
+    "static/js/2.8158dc11.chunk.js.map": "/smoothchords/static/js/2.8158dc11.chunk.js.map",
     "index.html": "/smoothchords/index.html",
-    "precache-manifest.8343a9ba20fd275a96b0dc63b0adcea0.js": "/smoothchords/precache-manifest.8343a9ba20fd275a96b0dc63b0adcea0.js",
+    "precache-manifest.27daa98942300713993c8db027949a3f.js": "/smoothchords/precache-manifest.27daa98942300713993c8db027949a3f.js",
     "service-worker.js": "/smoothchords/service-worker.js",
-    "static/css/main.0da9520a.chunk.css.map": "/smoothchords/static/css/main.0da9520a.chunk.css.map"
+    "static/css/main.cfb1c445.chunk.css.map": "/smoothchords/static/css/main.cfb1c445.chunk.css.map"
   }
 }
