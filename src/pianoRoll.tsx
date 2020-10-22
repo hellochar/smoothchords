@@ -47,7 +47,7 @@ const PianoKeyBlack: React.FC<{ isActive: boolean; pitch: number }> = ({
 };
 
 const PITCH_CLASSES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
-function pitchToMidiName(pitch: number) {
+export function pitchToMidiName(pitch: number) {
   // 48=C3
   // we're using sharps only
   // e.g. D# is 51 % 12 = 3

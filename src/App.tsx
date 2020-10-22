@@ -2,7 +2,7 @@ import React from 'react';
 import { Chord } from './chord';
 import { getChord, MidiPitch } from './chordFinder';
 import { CircleOfFourths } from './circleOfFourths';
-import { MidiNoteCollector } from './midiNoteCollector';
+import { MidiNoteCollector, TONE_SYNTH } from './midiNoteCollector';
 import { PianoRoll } from './pianoRoll';
 import { MajorScale, Scale, SCALES } from './scales';
 
@@ -10,6 +10,7 @@ interface IAppState {
   chord: Chord;
   pitches: MidiPitch[];
   scale: Scale;
+  soundEnabled: boolean;
   // scaleDegree: ScaleDegree;
   // inversion: Inversion;
 }
@@ -21,6 +22,7 @@ class App extends React.PureComponent<{}, IAppState> {
     // inversion: "root",
     // scaleDegree: 1,
     scale: MajorScale,
+    soundEnabled: true,
   };
   noteCollector: MidiNoteCollector;
   constructor(props: {}) {
@@ -41,12 +43,19 @@ class App extends React.PureComponent<{}, IAppState> {
     }
   }
 
+  private handleCheckboxClick = () => {
+    this.setState({
+      soundEnabled: !this.state.soundEnabled,
+    }, () => {
+      TONE_SYNTH.volume.value = this.state.soundEnabled ? 0 : -Infinity;
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <div className="top-area">
           <textarea className="scratchpad" />
-          <SoundManager />
           <select value={this.state.scale.name} onChange={(v) => this.setState({scale: SCALES[v.target.value]})}>
             {Object.keys(SCALES).map((name) => <option value={name}>{name}</option>)}
           </select>
@@ -54,6 +63,7 @@ class App extends React.PureComponent<{}, IAppState> {
             chord={this.state.chord}
             scale={this.state.scale}
             />
+          <div className="sound-toggle"><input type="checkbox" checked={this.state.soundEnabled} onClick={this.handleCheckboxClick} />Sound</div>
         </div>
         <PianoRoll pitches={this.state.pitches} />
       </div>

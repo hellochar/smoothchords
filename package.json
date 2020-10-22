@@ -18,6 +18,7 @@
     "react-scripts": "3.0.0",
     "reselect": "^4.0.0",
     "tonal": "^2.2.2",
+    "tone": "^14.7.58",
     "typescript": "3.4.5"
   },
   "scripts": {
